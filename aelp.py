@@ -20,7 +20,9 @@ def create_app(app):
 def deploy_files(app):
   chdir(app)
   with open('app.yaml', 'w') as f:
-    print >>f, apptemplate.AppYamlFormat % app
+    print >>f, apptemplate.AppYaml % app
+  with open('index.py', 'w') as f:
+    print >>f, apptemplate.PyFile 
 
 def main():
   if len(sys.argv) < 2:
